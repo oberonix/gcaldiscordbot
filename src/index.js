@@ -20,9 +20,37 @@ function extractEventData(event) {
   };
 }
 
-client.once('ready', () => {
+client.once('ready', async () => {
   console.log(`Logged in as ${client.user.tag}`);
+  await syncExistingEvents();
 });
+
+async function syncExistingEvents() {
+  let synced = 0;
+  let skipped = 0;
+  for (const guild of client.guilds.cache.values()) {
+    try {
+      const events = await guild.scheduledEvents.fetch();
+      for (const event of events.values()) {
+        if (getGcalId(event.id)) {
+          skipped++;
+          continue;
+        }
+        try {
+          const gcalId = await createEvent(extractEventData(event));
+          setMapping(event.id, gcalId);
+          console.log(`Synced existing discord:${event.id} → gcal:${gcalId}`);
+          synced++;
+        } catch (err) {
+          console.error(`Failed to sync event ${event.id}:`, err.message);
+        }
+      }
+    } catch (err) {
+      console.error(`Failed to fetch events for guild ${guild.name}:`, err.message);
+    }
+  }
+  console.log(`Startup sync: ${synced} new, ${skipped} already mapped`);
+}
 
 client.on('guildScheduledEventCreate', async (event) => {
   try {
