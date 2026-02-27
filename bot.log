@@ -1,0 +1,28 @@
+Using calendar: Scotch Egg Events (3d853e18aef6c74937fdff0f77a9f45f778ad72ecf8319d3b44b95133a908f27@group.calendar.google.com)
+Logged in as Gcal shared calendar#8558
+(node:10433) DeprecationWarning: The ready event has been renamed to clientReady to distinguish it from the gateway READY event and will only emit under that name in v15. Please use clientReady instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Created gcal event: dkkb43hlgn9mcjneriep7p943k
+Mapped discord:1476841941361492062 → gcal:dkkb43hlgn9mcjneriep7p943k
+Updated gcal event: dkkb43hlgn9mcjneriep7p943k
+Using calendar: Scotch Egg Events (3d853e18aef6c74937fdff0f77a9f45f778ad72ecf8319d3b44b95133a908f27@group.calendar.google.com)
+Logged in as Gcal shared calendar#8558
+(node:10481) DeprecationWarning: The ready event has been renamed to clientReady to distinguish it from the gateway READY event and will only emit under that name in v15. Please use clientReady instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Created gcal event: ggu0pia10bmb79655t5ute96dg
+Synced existing discord:1452526257072771186 → gcal:ggu0pia10bmb79655t5ute96dg
+Created gcal event: qur016g0e67teq1pubod2s5gng
+Synced existing discord:1461249400205611024 → gcal:qur016g0e67teq1pubod2s5gng
+Created gcal event: 5l90u3poul2nu0kt6rf0deuvl8
+Synced existing discord:1467578588650934562 → gcal:5l90u3poul2nu0kt6rf0deuvl8
+Created gcal event: euj73jcljbu6stqeertb50sfs0
+Synced existing discord:1467950977855524984 → gcal:euj73jcljbu6stqeertb50sfs0
+Created gcal event: 4rpfopek401k3qfvf5j6eo5oak
+Synced existing discord:1470243336379039856 → gcal:4rpfopek401k3qfvf5j6eo5oak
+Created gcal event: 7n7v4vcu9t63acv8nnae9soe04
+Synced existing discord:1470279362975629392 → gcal:7n7v4vcu9t63acv8nnae9soe04
+Created gcal event: 6pjqtlck7fgud4celuu97rqqbs
+Synced existing discord:1473465298052055143 → gcal:6pjqtlck7fgud4celuu97rqqbs
+Created gcal event: ju5j4aike67m9a4r0c1i4ii0fg
+Synced existing discord:1476663606560161883 → gcal:ju5j4aike67m9a4r0c1i4ii0fg
+Startup sync: 8 new, 1 already mapped

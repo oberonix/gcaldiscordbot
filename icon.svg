@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Calendar body -->
+  <rect x="48" y="80" width="416" height="384" rx="32" ry="32" fill="#5865F2"/>
+  <!-- Calendar top bar -->
+  <rect x="48" y="80" width="416" height="96" rx="32" ry="0" fill="#4752C4"/>
+  <rect x="48" y="144" width="416" height="32" fill="#4752C4"/>
+  <!-- Calendar rings -->
+  <rect x="144" y="48" width="32" height="80" rx="16" ry="16" fill="#FFFFFF"/>
+  <rect x="336" y="48" width="32" height="80" rx="16" ry="16" fill="#FFFFFF"/>
+  <!-- Google-colored dots for dates -->
+  <!-- Row 1 -->
+  <circle cx="152" cy="248" r="24" fill="#4285F4"/>
+  <circle cx="256" cy="248" r="24" fill="#EA4335"/>
+  <circle cx="360" cy="248" r="24" fill="#FBBC05"/>
+  <!-- Row 2 -->
+  <circle cx="152" cy="344" r="24" fill="#34A853"/>
+  <circle cx="256" cy="344" r="24" fill="#4285F4"/>
+  <circle cx="360" cy="344" r="24" fill="#EA4335"/>
+  <!-- Sync arrow (bottom right) -->
+  <g transform="translate(380, 380)">
+    <path d="M60 40 A35 35 0 1 1 25 5" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"/>
+    <polygon points="20,-4 32,8 12,8" fill="#FFFFFF"/>
+  </g>
+</svg>
