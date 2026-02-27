@@ -1,13 +1,47 @@
 import 'dotenv/config';
 import { Client, GatewayIntentBits } from 'discord.js';
-import { initCalendar, createEvent, updateEvent, deleteEvent } from './calendar.js';
+import { initCalendar, createEvent, updateEvent, deleteEvent, shareCalendar, unshareCalendar } from './calendar.js';
 import { loadMap, getGcalId, setMapping, removeMapping } from './event-map.js';
 
 const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildScheduledEvents,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.MessageContent,
   ],
+});
+
+const EMAIL_RE = /[\w.-]+@[\w.-]+\.\w+/;
+
+client.on('messageCreate', async (message) => {
+  if (message.author.bot) return;
+  if (!message.mentions.has(client.user)) return;
+
+  const content = message.content.replace(/<@!?\d+>/g, '').trim().toLowerCase();
+  const emailMatch = message.content.match(EMAIL_RE);
+
+  if (content.startsWith('add') && emailMatch) {
+    try {
+      await shareCalendar(emailMatch[0], 'writer');
+      await message.reply(`✅ Added **${emailMatch[0]}** to the calendar as a writer.`);
+    } catch (err) {
+      await message.reply(`❌ Failed to add: ${err.message}`);
+    }
+  } else if (content.startsWith('remove') && emailMatch) {
+    try {
+      await unshareCalendar(emailMatch[0]);
+      await message.reply(`✅ Removed **${emailMatch[0]}** from the calendar.`);
+    } catch (err) {
+      await message.reply(`❌ Failed to remove: ${err.message}`);
+    }
+  } else if (content.startsWith('help')) {
+    await message.reply(
+      '**Commands:**\n' +
+      '• `@bot add email@example.com` — add someone to the calendar\n' +
+      '• `@bot remove email@example.com` — remove someone from the calendar'
+    );
+  }
 });
 
 function extractEventData(event) {

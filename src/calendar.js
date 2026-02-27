@@ -64,6 +64,22 @@ export async function deleteEvent(gcalEventId) {
   console.log(`Deleted gcal event: ${gcalEventId}`);
 }
 
+export async function shareCalendar(email, role = 'writer') {
+  await calendar.acl.insert({
+    calendarId,
+    requestBody: { role, scope: { type: 'user', value: email } },
+  });
+  console.log(`Shared calendar with ${email} as ${role}`);
+}
+
+export async function unshareCalendar(email) {
+  await calendar.acl.delete({
+    calendarId,
+    ruleId: `user:${email}`,
+  });
+  console.log(`Removed ${email} from calendar`);
+}
+
 function buildEventBody({ title, description, startTime, endTime, location }) {
   const body = {
     summary: title,
