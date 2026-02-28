@@ -35,6 +35,8 @@ client.on('messageCreate', async (message) => {
     } catch (err) {
       await message.reply(`❌ Failed to remove: ${err.message}`);
     }
+  } else if (/^(hello|hi|hey|howdy|sup|yo)\b/.test(content)) {
+    await message.reply('Hello! 👋🥚');
   } else if (content.startsWith('help')) {
     await message.reply(
       '**Commands:**\n' +

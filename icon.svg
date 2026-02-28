@@ -1,24 +1,68 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <!-- Calendar body -->
-  <rect x="48" y="80" width="416" height="384" rx="32" ry="32" fill="#5865F2"/>
-  <!-- Calendar top bar -->
-  <rect x="48" y="80" width="416" height="96" rx="32" ry="0" fill="#4752C4"/>
-  <rect x="48" y="144" width="416" height="32" fill="#4752C4"/>
-  <!-- Calendar rings -->
-  <rect x="144" y="48" width="32" height="80" rx="16" ry="16" fill="#FFFFFF"/>
-  <rect x="336" y="48" width="32" height="80" rx="16" ry="16" fill="#FFFFFF"/>
-  <!-- Google-colored dots for dates -->
-  <!-- Row 1 -->
-  <circle cx="152" cy="248" r="24" fill="#4285F4"/>
-  <circle cx="256" cy="248" r="24" fill="#EA4335"/>
-  <circle cx="360" cy="248" r="24" fill="#FBBC05"/>
-  <!-- Row 2 -->
-  <circle cx="152" cy="344" r="24" fill="#34A853"/>
-  <circle cx="256" cy="344" r="24" fill="#4285F4"/>
-  <circle cx="360" cy="344" r="24" fill="#EA4335"/>
-  <!-- Sync arrow (bottom right) -->
-  <g transform="translate(380, 380)">
-    <path d="M60 40 A35 35 0 1 1 25 5" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"/>
-    <polygon points="20,-4 32,8 12,8" fill="#FFFFFF"/>
-  </g>
+  <!-- Background -->
+  <circle cx="256" cy="256" r="256" fill="#1a0a2e"/>
+  
+  <!-- Glow -->
+  <ellipse cx="256" cy="280" rx="140" ry="170" fill="#5865F2" opacity="0.2"/>
+  
+  <!-- Egg body (slightly tilted, lumpy) -->
+  <ellipse cx="260" cy="275" rx="130" ry="175" transform="rotate(-5, 260, 275)" fill="#F5E6C8"/>
+  <!-- Egg shadow/depth -->
+  <ellipse cx="250" cy="280" rx="115" ry="160" transform="rotate(-5, 250, 280)" fill="#FFF0D6"/>
+  <!-- Crack line across the egg -->
+  <path d="M150,260 L185,250 L200,270 L230,245 L255,265 L280,240 L310,258 L335,248 L370,260" fill="none" stroke="#D4B896" stroke-width="3" stroke-linecap="round"/>
+  <!-- Smaller cracks branching off -->
+  <path d="M200,270 L195,290" fill="none" stroke="#D4B896" stroke-width="2" stroke-linecap="round"/>
+  <path d="M280,240 L290,225" fill="none" stroke="#D4B896" stroke-width="2" stroke-linecap="round"/>
+  <path d="M255,265 L250,285" fill="none" stroke="#D4B896" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Left eye (mismatched sizes, unsettling) -->
+  <ellipse cx="210" cy="300" rx="35" ry="40" fill="#0D0D0D"/>
+  <ellipse cx="210" cy="300" rx="28" ry="33" fill="#FF3366"/>
+  <ellipse cx="210" cy="300" rx="14" ry="26" fill="#0D0D0D"/>
+  <circle cx="198" cy="288" r="9" fill="#FFFFFF" opacity="0.9"/>
+  
+  <!-- Right eye (bigger, looking slightly different direction) -->
+  <ellipse cx="316" cy="290" rx="30" ry="34" fill="#0D0D0D"/>
+  <ellipse cx="316" cy="290" rx="24" ry="28" fill="#00FFAA"/>
+  <ellipse cx="320" cy="290" rx="12" ry="22" fill="#0D0D0D"/>
+  <circle cx="308" cy="280" r="8" fill="#FFFFFF" opacity="0.9"/>
+  
+  <!-- Tiny weird mouth -->
+  <ellipse cx="265" cy="370" rx="12" ry="8" fill="#0D0D0D"/>
+  <ellipse cx="265" cy="368" rx="8" ry="4" fill="#FF3366" opacity="0.6"/>
+  
+  <!-- Single tooth -->
+  <rect x="262" y="374" width="6" height="10" rx="2" fill="#FFFFFF"/>
+  
+  <!-- Tiny legs sticking out bottom -->
+  <rect x="215" y="430" width="14" height="30" rx="7" fill="#F5E6C8"/>
+  <rect x="283" y="432" width="14" height="28" rx="7" fill="#F5E6C8"/>
+  <!-- Tiny feet -->
+  <ellipse cx="222" cy="462" rx="12" ry="6" fill="#F5E6C8"/>
+  <ellipse cx="290" cy="462" rx="12" ry="6" fill="#F5E6C8"/>
+  
+  <!-- Tiny arms -->
+  <rect x="128" y="310" width="28" height="10" rx="5" fill="#F5E6C8" transform="rotate(-15, 142, 315)"/>
+  <rect x="356" y="305" width="28" height="10" rx="5" fill="#F5E6C8" transform="rotate(20, 370, 310)"/>
+  <!-- Tiny hands waving -->
+  <circle cx="126" cy="306" r="8" fill="#F5E6C8"/>
+  <circle cx="386" cy="300" r="8" fill="#F5E6C8"/>
+  
+  <!-- Spots on egg -->
+  <circle cx="180" cy="210" r="8" fill="#D4B896" opacity="0.5"/>
+  <circle cx="310" cy="190" r="6" fill="#D4B896" opacity="0.4"/>
+  <circle cx="220" cy="400" r="10" fill="#D4B896" opacity="0.4"/>
+  <circle cx="330" cy="380" r="7" fill="#D4B896" opacity="0.5"/>
+  
+  <!-- Stars -->
+  <polygon points="80,80 84,68 88,80 100,84 88,88 84,100 80,88 68,84" fill="#FFFFFF" opacity="0.7"/>
+  <polygon points="430,120 433,112 436,120 444,123 436,126 433,134 430,126 422,123" fill="#FFD700" opacity="0.8"/>
+  <polygon points="70,400 73,392 76,400 84,403 76,406 73,414 70,406 62,403" fill="#00FFAA" opacity="0.6"/>
+  <polygon points="450,420 452,414 454,420 460,422 454,424 452,430 450,424 444,422" fill="#FF3366" opacity="0.7"/>
+  
+  <!-- Stink/aura lines -->
+  <path d="M155,180 Q148,160 155,140" fill="none" stroke="#00FFAA" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+  <path d="M350,170 Q358,150 352,130" fill="none" stroke="#FF3366" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+  <path d="M256,110 Q260,90 254,70" fill="none" stroke="#FFD700" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
 </svg>
