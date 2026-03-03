@@ -102,7 +102,6 @@ client.on('guildScheduledEventUpdate', async (oldEvent, newEvent) => {
   try {
     const gcalId = getGcalId(newEvent.id);
     if (!gcalId) {
-      // No mapping exists — create a new event instead
       const newGcalId = await createEvent(extractEventData(newEvent));
       setMapping(newEvent.id, newGcalId);
       console.log(`Created missing mapping discord:${newEvent.id} → gcal:${newGcalId}`);
@@ -118,8 +117,29 @@ client.on('guildScheduledEventDelete', async (event) => {
   try {
     const gcalId = getGcalId(event.id);
     if (!gcalId) return;
+
+    // Status 3 = COMPLETED — keep on calendar
+    if (event.status === 3) {
+      console.log(`Event ${event.id} completed, keeping on calendar`);
+      return;
+    }
+
+    // Wait then verify event is truly gone from Discord
+    await new Promise(r => setTimeout(r, 3000));
+    try {
+      const guild = client.guilds.cache.get(event.guildId);
+      if (guild) {
+        await guild.scheduledEvents.fetch(event.id);
+        console.log(`Event ${event.id} still exists on Discord, skipping gcal delete`);
+        return;
+      }
+    } catch {
+      // Not found = truly deleted
+    }
+
     await deleteEvent(gcalId);
     removeMapping(event.id);
+    console.log(`Deleted gcal event for discord:${event.id}`);
   } catch (err) {
     console.error('Failed to delete gcal event:', err.message);
   }
